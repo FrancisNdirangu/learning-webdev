@@ -3,19 +3,23 @@ html {
 }
 
 .text {
-    color: aquamarine;
-    align-items: ;
+    color: white;
+    font-family: "Libre Baskerville", Serif;
+    font-optical-sizing: auto;
 }
 
 .image {
     margin: 20px;
     width: 80% ;
-    height: 90%;
+    height: 100%;
     border: 5px solid white
-
 }
 
 .div1 {
    align-items: center;
    text-align: center; 
+}
+
+#big-text {
+    text-transform: uppercase;
 }
