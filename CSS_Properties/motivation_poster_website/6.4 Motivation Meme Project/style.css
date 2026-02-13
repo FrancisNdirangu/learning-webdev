@@ -1,0 +1,21 @@
+html {
+    background-color: black;
+}
+
+.text {
+    color: aquamarine;
+    align-items: ;
+}
+
+.image {
+    margin: 20px;
+    width: 80% ;
+    height: 90%;
+    border: 5px solid white
+
+}
+
+.div1 {
+   align-items: center;
+   text-align: center; 
+}
