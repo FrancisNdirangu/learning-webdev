@@ -17,19 +17,32 @@
 
     p {
       font-size: 2em;
+      display:inline;
     }
 
     .cat {
       background-color: aquamarine;
+      display:inline-block;
     }
+
+    .cat > img {
+      float:left
+    }
+
+
 
     .dog {
       background-color: coral;
+      display:inline-block;
+      float:right;
     }
-
+    .dog > img {
+      float:left;
+    }
     footer {
       text-align: center;
       background-color: blueviolet;
+      clear:both;
     }
   </style>
 </head>
