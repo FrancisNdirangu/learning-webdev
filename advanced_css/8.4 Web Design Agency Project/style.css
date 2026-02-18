@@ -8,11 +8,50 @@ body {
 }
 .main {
   flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.logo {
+  background-color: green;
 }
 
 h1 {
+  grid-column: span 2;
   font-size: 5rem;
+  background-color: aqua;
 }
+
+.main > div {
+  display: flex;
+}
+
+.main > div > img {
+  width: 80%;
+}
+
+.pix-words {
+  display: grid;
+  grid-template-areas: "card-title" 
+                       "card-text";
+  background-color: red;
+  
+}
+
+.card-title {
+  grid-area:card-title;
+}
+
+.card-text {
+  grid-area:card-text
+}
+
+
+
+
+
+
+
 
 footer {
   text-align: right;
