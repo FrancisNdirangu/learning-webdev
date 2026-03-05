@@ -17,6 +17,8 @@
         display: flex;
         flex-direction: row;
         gap:20px;
+        justify-items: center;
+        align-items: center;
       }
     
     .pricing-plan {
@@ -71,15 +73,46 @@
           
         }
 
-        .pricing-plan {
-          background-color: #DBD7D7;
-          
-        }
 
-        .plan-button {
-          background-color: orange;
-          color: white;
-        }
+
+            .pricing-plan {
+      background-color: #DBD7D7;
+      width: 100%;
+      height: 500px;
+      padding: 10px;
+      align-content: center;
+      text-align: center;
+      
+      
+      
+    }
+
+    .plan-button {
+      background-color: #F28635;
+      font-size: 20px;
+      padding: 10px;
+      color: white;
+      border-radius: 10%;
+    }
+
+    .plan-title, .plan-price {
+      font-weight: bold;
+      font-size:xx-large;
+    }
+
+    .plan-features {
+    list-style-type: none;
+    padding: 20px;
+    }
+
+    ul li {
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .plan-price {
+      font-size: 70px;
+    }
 
 
       }
