@@ -27,11 +27,16 @@
   .red {
     background-color: red;
     grid-column: 1;
+    border-right: solid black 9px;
+    border-bottom: solid black 9px;
   }
   .blue {
     background-color: #004592;
     grid-column: 4;
     grid-row: 2;
+    border-bottom: solid black 10px;
+    border-top: solid black 9px;
+    border-left: solid black 9px;
   }
 
   .yellow {
@@ -48,6 +53,17 @@
 
   .topright,.row2left,.row2middle,.row3left,.row2right {
     background-color: #F0F1EC;
+  }
+
+  .row2left {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-right: solid black 9px;
+    border-bottom: solid black 9px;
+
+
   }
 
 
