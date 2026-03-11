@@ -23,6 +23,7 @@
     display: grid;
     grid-template-columns: 320px 198px 153px 50px;
     grid-template-rows: 414px 130px 155px 20px;
+    justify-content: center;
   }
   .red {
     background-color: red;
@@ -35,7 +36,6 @@
     grid-column: 4;
     grid-row: 2;
     border-bottom: solid black 10px;
-    border-top: solid black 9px;
     border-left: solid black 9px;
   }
 
@@ -62,10 +62,33 @@
     grid-column-end: 2;
     border-right: solid black 9px;
     border-bottom: solid black 9px;
-
-
+  }
+  .row3left {
+    grid-row: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-right: solid black 9px;
   }
 
+  .topright {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    border-bottom: solid black 9px;
+
+  }
+  .row2middle {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .row2right {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    border-left: solid black 9px;
+
+  }
 
   </style>
 </head>
@@ -81,7 +104,7 @@
     <div class="row2left">bottomleft</div>
     <div class="row2middle">bottommiddle</div>
     <div class="row2right">row2right</div>
-    <div class="row3left"></div>
+    <div class="row3left">row3left</div>
     </div>
 </body>
 
