@@ -28,8 +28,6 @@
 }
 
 .container {
-  height:50%;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: repeat(12,1fr);
@@ -48,4 +46,12 @@
   grid-row-end: 6;
   grid-column-start: 9;
   grid-column-end:12;
+}
+
+.download-buttons {
+  grid-column: 3;
+  grid-row: 5;
+  padding-top: 120px;
+  border: solid 10px black;
+
 }
