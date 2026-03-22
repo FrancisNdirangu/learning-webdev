@@ -16,3 +16,17 @@
   }
 }
 
+
+.text-download-button {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.title-buttons {
+  grid-column: 1;
+}
+
+.iphone {
+  grid-column: 2;
+}
+
