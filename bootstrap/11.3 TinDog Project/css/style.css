@@ -17,9 +17,17 @@
 }
 
 
-.text-download-button {
+.title-page {
   display: grid;
   grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  
+}
+
+.title-text {
+  align-items: center;
+  grid-row: 1;
 }
 
 .title-buttons {
