@@ -47,3 +47,23 @@
   gap:200px;
   justify-content: center;
 }
+
+.testimonial-text-dog {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-content: center;
+}
+
+.dog-text {
+  display: grid;
+  justify-content: center;
+}
+
+.dog-text p {
+  display: grid;
+  justify-content: space-evenly;
+}
+
+.dog-text img {
+  border-radius: 50%;
+}
