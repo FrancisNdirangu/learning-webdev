@@ -67,3 +67,14 @@
 .dog-text img {
   border-radius: 50%;
 }
+
+.testimonial-companies {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+.testimonial-companies img {
+  height: 50px;
+  width: 200px;
+}
