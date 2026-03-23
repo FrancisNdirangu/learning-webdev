@@ -78,3 +78,8 @@
   height: 35px;
   width: 130px;
 }
+
+.pricing-table {
+  display: flex;
+  gap: 50px;
+}
