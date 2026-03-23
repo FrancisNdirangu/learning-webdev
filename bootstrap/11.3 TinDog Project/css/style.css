@@ -40,3 +40,10 @@
   
 }
 
+
+.features-page {
+  display: flex;
+  padding: 100px;
+  gap:200px;
+  justify-content: center;
+}
