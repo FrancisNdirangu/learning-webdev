@@ -96,3 +96,17 @@
   gap: 50px;
   padding-top: 50px;
 }
+
+.footer-div {
+  display: flex;
+  gap:100px;
+  justify-content: center;
+  padding: 50px;
+}
+
+.right-section-footer {
+  display: flex;
+  padding-left:50px;
+  justify-content: end;
+
+}
