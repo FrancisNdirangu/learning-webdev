@@ -79,8 +79,20 @@
   width: 130px;
 }
 
+.text-pricing-section {
+  display: grid;
+  justify-content: center;
+  padding: 50px;
+}
+
+.text-pricing-section p {
+  display: grid;
+  justify-content: space-around;
+}
+
 .pricing-table {
   display: flex;
+  justify-content: space-around;
   gap: 50px;
-  padding-top: 100px;
+  padding-top: 50px;
 }
