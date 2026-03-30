@@ -18,10 +18,11 @@ function lifeInWeeks(age) {
     var months = years*12;
     var weeks = years*52;
     var days = years*365;
-    console.log('You have '+days+' days, '+weeks+' weeks, and '+months+' months left.')
-    
+    console.log('You have '+days+' days, '+weeks+' weeks, and '+months+' months left.');
+    return 'You have this many years left:'+years; 
     
     
 /*************Don't change the code below**********/
 }
-lifeInWeeks(27)
+var francisLife = lifeInWeeks(27)
+console.log(francisLife)
