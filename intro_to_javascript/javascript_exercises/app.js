@@ -28,24 +28,38 @@
 // console.log(francisLife)
 
 
-function bmiCalculator (weight, height) {
+// function bmiCalculator (weight, height) {
     
-    var BMI = weight/(height**2)
+//     var BMI = weight/(height**2)
     
-    if (BMI > 24.9){
-        var interpretation = 'Your BMI is '+BMI+ ', so you are overweight.';
-        console.log(interpretation)
+//     if (BMI > 24.9){
+//         var interpretation = 'Your BMI is '+BMI+ ', so you are overweight.';
+//         console.log(interpretation)
+//     }
+//     if (BMI >18.5 && BMI<24.9){
+//          interpretation = 'Your BMI is '+BMI+', so you have a normal weight.';
+//         console.log(interpretation)
+//         }
+//     if (BMI <18.5) {
+//          interpretation = 'Your BMI is '+BMI+', so you are underweight.';
+//         console.log(interpretation)
+//         }
+    
+//     return interpretation;
+// }
+
+// bmiCalculator(80,1.82)
+
+function leapYear(year){
+    if (year %400 == 0) {
+        console.log('Leap Year');
+    } else if (year%100 == 0 && year%4 ==0) {
+        console.log('Not Leap Year');
+    } else if (year%4==0 && year%100!=0) {
+        console.log('Leap Year');
+    } else {
+        console.log('Not Leap Year')
     }
-    if (BMI >18.5 && BMI<24.9){
-         interpretation = 'Your BMI is '+BMI+', so you have a normal weight.';
-        console.log(interpretation)
-        }
-    if (BMI <18.5) {
-         interpretation = 'Your BMI is '+BMI+', so you are underweight.';
-        console.log(interpretation)
-        }
-    
-    return interpretation;
 }
 
-bmiCalculator(80,1.82)
+leapYear(2400)
