@@ -50,16 +50,32 @@
 
 // bmiCalculator(80,1.82)
 
-function leapYear(year){
-    if (year %400 == 0) {
-        console.log('Leap Year');
-    } else if (year%100 == 0 && year%4 ==0) {
-        console.log('Not Leap Year');
-    } else if (year%4==0 && year%100!=0) {
-        console.log('Leap Year');
-    } else {
-        console.log('Not Leap Year')
-    }
-}
+// function leapYear(year){
+//     if (year %400 == 0) {
+//         console.log('Leap Year');
+//     } else if (year%100 == 0 && year%4 ==0) {
+//         console.log('Not Leap Year');
+//     } else if (year%4==0 && year%100!=0) {
+//         console.log('Leap Year');
+//     } else {
+//         console.log('Not Leap Year')
+//     }
+// }
 
-leapYear(2400)
+// leapYear(2400)
+// var output = [];
+// var n = 0;
+// function FizzBuzz(){
+//     n = n+1;
+//     output.push(n);
+//     console.log(output);
+//     output = output;
+//     n=n;
+// }
+
+var bottles = 99
+
+while (bottles > 1) {
+    console.log(bottles+' bottles of bear in the wall.')
+    bottles = bottles-1
+}
