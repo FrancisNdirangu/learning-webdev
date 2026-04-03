@@ -73,9 +73,35 @@
 //     n=n;
 // }
 
-var bottles = 99
+// var bottles = 99
 
-while (bottles > 1) {
-    console.log(bottles+' bottles of bear in the wall.')
-    bottles = bottles-1
+// while (bottles > 1) {
+//     console.log(bottles+' bottles of bear in the wall.')
+//     bottles = bottles-1
+// }
+
+var start_array = [0,1];
+var x=1;
+var len_array = start_array.length;
+
+function fibonaccigenerator (n) {
+    // so in order to do the fib sequence i must add the last two numbers
+    // for fib a you must add array[a] and array[a-1]
+    // however you must calculate value array[a] using a while loop
+    // fib(n) is defined as array[n] + array[n-1]
+    // however you must calculate every value after the starting array
+    
+    // while (x > n) {
+    //     console.log(start_array.length)
+    //     var next_value = start_array[x] + start_array[x-1];
+    //     // start_array.push(next_value);
+    //     // console.log(start_array);
+    //     console.log(x);
+    //     x=x+1;
+
+
+
+    // }
 }
+
+fibonaccigenerator(4)
