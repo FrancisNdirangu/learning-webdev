@@ -1,1 +1,1 @@
-document.querySelector('.list').innerHTML.style.color = 'red'
+document.querySelector('.list a').style.color = 'red'
