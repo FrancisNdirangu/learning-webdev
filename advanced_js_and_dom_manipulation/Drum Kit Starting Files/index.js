@@ -4,5 +4,7 @@ for (const i of button_index){
 document.querySelectorAll('.drum')[i].addEventListener('click',clickResponse);
 }
 function clickResponse() {
-    alert('I got clicked');
+    // alert('I got clicked');
+    var audio = new Audio('sounds/tom-1.mp3');
+    audio.play();
 }
