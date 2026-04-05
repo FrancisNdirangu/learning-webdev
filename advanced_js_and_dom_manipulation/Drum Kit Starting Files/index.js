@@ -7,6 +7,7 @@ function clickResponse() {
     // alert('I got clicked');
 
     var buttonInnerHTML = this.innerHTML;
+    
 
     switch(buttonInnerHTML) {
 
@@ -45,10 +46,13 @@ function clickResponse() {
             kick.play();
             break;
 
+        default: console.log(buttonInnerHTML)
+
     }
 
 }
-
-
+    var buttonPressed = this.addEventListener('keydown',function (event) {
+    console.log(event.key)
+});
     // var audio = new Audio('sounds/tom-1.mp3');
     // audio.play();
