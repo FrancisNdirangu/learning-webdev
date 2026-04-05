@@ -64,6 +64,7 @@ for (var i=0;i<instrumentKeys.length;i++) {
 function pressedResponse(event) {
 
     var button = event.key;
+    buttonAnimation(event.key);
 
     switch(button) {
 
@@ -107,4 +108,13 @@ function pressedResponse(event) {
 
 
     }
+}
+
+function buttonAnimation(pressedKey) {
+    document.querySelector('.'+pressedKey).classList.add('pressed');
+
+    setTimeout(function() {
+        document.querySelector('.'+pressedKey).classList.remove('pressed')
+    }, 100);
+    // document.querySelector('.'+pressedKey).classList.toggle('pressed') ;
 }
