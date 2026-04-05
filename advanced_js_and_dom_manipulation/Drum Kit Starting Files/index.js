@@ -58,7 +58,7 @@ function clickResponse() {
     // audio.play();
 
 var instrumentKeys = ['w','a','s','d','j','k','l']
-for (var i=0,i<instrumentKeys.length,i++) {
+for (var i=0;i<instrumentKeys.length;i++) {
     var buttonPressed = this.addEventListener('keydown',pressedResponse);
 }
 function pressedResponse(event) {
