@@ -1,10 +1,16 @@
 // $('body').css("background-color","red")
 var buttonColors = ["red","blue","green","yellow"];
 var gameState = [];
+var level = 0;
 
 function nextSequence(){
     //generated a random number between 0 and 3.
     var randomNumber = Math.floor(Math.random()*4);
+
+    level=level+1;
+    // console.log(level);
+    $('h1').text('Level '+ level);
+
     return randomNumber;
 }
 
@@ -12,7 +18,7 @@ var randomChosenColor = buttonColors[nextSequence()];
 // console.log(randomChosenColor); // confirmed it is working as expected
 
 gameState.push(randomChosenColor);
-// console.log(gameState)
+console.log(gameState)
 
 $('#'+randomChosenColor).fadeOut(100).fadeIn(100);
 
@@ -27,6 +33,23 @@ $('.btn').on('click',function(event) {
     playSound(event.target.id);
     animatePress(event.target.id);
     console.log(userClickedPattern);
+    
+    if (checkScore() == true) {
+        console.log('you got it correct')
+        nextSequence()
+
+    } else {
+        console.log('You got it wrong')
+        $('h1').text('You lose, press any button to restart');
+        level=0;
+        var loseSound = Audio('sounds/wrong.mp3');
+        loseSound.play();
+
+        $(document).on('keydown',function(){
+            level = 0;
+            nextSequence();
+        })
+    }
 
     // return event.target.id;
 });
@@ -87,5 +110,30 @@ function animatePress(currentColor) {
             setTimeout(function() {
                 $('#green').removeClass('pressed')},100);
             break;
+    }
+}
+
+firstTImeKeyboardPress = [];
+
+$(document).on('keydown',function(){nextSequence();
+    console.log('key has been pressed')
+});
+
+
+
+function checkScore() {
+    var lastClicked = userClickedPattern.at(-1);
+    var lastRandom = gameState.at(-1);
+    console.log('Last Clicked '+lastClicked);
+    console.log('Gamestate '+lastRandom);
+
+    if (lastClicked == lastRandom) {
+        console.log(true);
+        // nextSequence();
+        return true
+    } else {
+        console.log(false);
+        // $(h1).text('You lose');
+        return false
     }
 }
