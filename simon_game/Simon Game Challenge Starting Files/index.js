@@ -24,8 +24,9 @@ $('.btn').on('click',function(event) {
     // console.log(event.target.id);
     var buttonClicked = event.target.id;
     userClickedPattern.push(buttonClicked);
-    playSound(event.target.id)
-    console.log(userClickedPattern)
+    playSound(event.target.id);
+    animatePress(event.target.id);
+    console.log(userClickedPattern);
 
     // return event.target.id;
 });
@@ -56,6 +57,35 @@ function playSound(name) {
         case 'green':
             var greenSound = Audio('sounds/green.mp3');
             greenSound.play();
+            break;
+    }
+}
+
+function animatePress(currentColor) {
+        
+    switch(currentColor) {
+        case 'red':
+            $('#red').addClass('pressed');
+            setTimeout(function() {
+                $('#red').removeClass('pressed')}, 100);
+            break;
+        
+        case 'blue':
+            $('#blue').addClass('pressed');
+            setTimeout(function() {
+                $('#blue').removeClass('pressed')},100);
+            break;
+
+        case 'yellow':
+            $('#yellow').addClass('pressed');
+            setTimeout(function(){
+                $('#yellow').removeClass('pressed')},100);
+            break;
+
+        case 'green':
+            $('#green').addClass('pressed');
+            setTimeout(function() {
+                $('#green').removeClass('pressed')},100);
             break;
     }
 }
