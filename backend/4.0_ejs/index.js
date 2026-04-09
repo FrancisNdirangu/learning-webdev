@@ -1,4 +1,5 @@
-
+import ejs from 'ejs'
+import express from 'express'
 //function to give the day of the week based of input of date
 
 var dayOfWeek = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday',];
