@@ -1,5 +1,6 @@
-import ejs from 'ejs'
 import express from 'express'
+import bodyParser from 'body-parser';
+
 //function to give the day of the week based of input of date
 
 var dayOfWeek = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday',];
@@ -21,5 +22,22 @@ function dateToday(date) {
     }
 };
 
-var x = dateToday('09-04-2026');
-console.log(x);
+var date = dateToday('09-04-2026');
+console.log(date);
+
+
+var app = express();
+var port = 3000;
+
+app.use(bodyParser.urlencoded());
+app.set('view engine','ejs')
+
+
+app.get('/', (res,req) => {
+    res.render('views/index.ejs',{userEntryDate: date });
+});
+
+app.listen(port,(err) => {
+    if (err) throw err;
+    console.log(`Server is listening on port: ${port}`);
+})
