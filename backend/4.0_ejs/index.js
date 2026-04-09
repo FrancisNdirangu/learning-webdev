@@ -30,7 +30,7 @@ var app = express();
 var port = 3000;
 
 app.use(bodyParser.urlencoded());
-app.set('view engine','ejs')
+app.set('view engine','ejs');
 
 
 app.get('/', (res,req) => {
@@ -40,4 +40,4 @@ app.get('/', (res,req) => {
 app.listen(port,(err) => {
     if (err) throw err;
     console.log(`Server is listening on port: ${port}`);
-})
+});
