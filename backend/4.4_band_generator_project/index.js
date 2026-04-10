@@ -38,6 +38,10 @@ app.post("/submit", (req, res) => {
   const randNoun = noun[randNumNoun];
   console.log(randNoun);
 
+  res.locals = {noun:randNoun,adjective:randAdj};
+
+  res.render('index.ejs');
+
 
 
 });
