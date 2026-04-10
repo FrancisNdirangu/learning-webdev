@@ -15,6 +15,8 @@ app.use(express.static('public'));
 
 //Step 4 - Add a dynamic year to the footer.
 //Hint: Google to find out how to get the current year using JS.
+// const currentYear = new Date().getFullYear();
+// console.log(currentYear)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -42,7 +44,7 @@ app.post("/submit", (req, res) => {
   const randNoun = noun[randNumNoun];
   console.log(randNoun);
 
-  res.locals = {noun:randNoun,adjective:randAdj};
+  res.locals = {noun:randNoun,adjective:randAdj,thisYear:currentYear};
 
   res.render('index.ejs');
 
