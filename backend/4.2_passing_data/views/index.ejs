@@ -9,6 +9,12 @@
 
 <body>
   <!-- Write your code here -->
+     <% if (locals.lenName > 0) { %>
+    <h2>Your Name has <%= locals.lenName %> letters </h2>
+    <% } else { %>
+      <h2>Enter Your Name</h2>
+      <% } %> 
+
   <form action="/submit" method="POST">
     <input type="text" name="fName" placeholder="First name">
     <input type="text" name="lName" placeholder="Last name">
