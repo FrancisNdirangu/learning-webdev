@@ -11,6 +11,8 @@ const recipeJSON =
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+const jsonData = JSON.parse(recipeJSON);
+console.log(jsonData[0]['ingredients'])
 
 app.get("/", (req, res) => {
   res.render("index.ejs");
@@ -19,7 +21,11 @@ app.get("/", (req, res) => {
 app.post("/recipe", (req, res) => {
   //Step 3: Write your code here to make this behave like the solution website.
   const buttonValue = req.body['choice'];
-  console.log(buttonValue);
+  //console.log(buttonValue);
+
+  if (buttonValue == "chicken") {
+    console.log(recipeJSON[0]['price']);
+  };
 
 
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
