@@ -28,6 +28,16 @@ app.post("/recipe", (req, res) => {
       app.locals.proteinName = foodData['protein']['name'];
       app.locals.proteinPreparation = foodData['protein']['preparation']
       console.log(foodData)
+      app.locals.salsaQuantity = foodData['salsa']['quantity'];
+      app.locals.salsaSpiciness = foodData['salsa']['spiciness'];
+      
+      app.locals.lettuceName = foodData['toppings'][0]['name'];
+      app.locals.lettuceQuantity = foodData['toppings'][0]['quantity'];
+      app.locals.guacName = foodData['toppings'][2]['name'];
+      app.locals.guacQuantity = foodData['toppings'][2]['quantity'];
+      app.locals.creamName = foodData['toppings'][3]['name'];
+      app.locals.creamQuantity = foodData['toppings'][3]['quantity'];
+      console.log(app.locals.creamName);
 
      
       }
