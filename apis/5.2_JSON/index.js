@@ -37,6 +37,8 @@ app.post("/recipe", (req, res) => {
       app.locals.guacQuantity = foodData['toppings'][2]['quantity'];
       app.locals.creamName = foodData['toppings'][3]['name'];
       app.locals.creamQuantity = foodData['toppings'][3]['quantity'];
+      app.locals.cheeseName = foodData['toppings'][1]['name'];
+      app.locals.cheeseQuantity = foodData['toppings'][1]['quantity'];
       console.log(app.locals.creamName);
 
      
