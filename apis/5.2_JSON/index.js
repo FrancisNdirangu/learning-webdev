@@ -12,7 +12,6 @@ const recipeJSON =
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 const jsonData = JSON.parse(recipeJSON);
-console.log(jsonData[0]['ingredients'])
 
 app.get("/", (req, res) => {
   res.render("index.ejs");
@@ -24,7 +23,9 @@ app.post("/recipe", (req, res) => {
   //console.log(buttonValue);
 
   if (buttonValue == "chicken") {
-    console.log(recipeJSON[0]['price']);
+    const chickenData = jsonData[0]['ingredients']
+    app.locals.proteinName = chickenData['protein']['name'];
+    console.log(app.locals.proteinName)
   };
 
 
