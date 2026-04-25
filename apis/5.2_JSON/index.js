@@ -23,11 +23,14 @@ app.post("/recipe", (req, res) => {
   //console.log(buttonValue);
 
   if (buttonValue == "chicken") {
-    const chickenData = jsonData[0]['ingredients']
-    app.locals.proteinName = chickenData['protein']['name'];
-    console.log(app.locals.proteinName)
-  };
+      const index = 0;
+      const foodData = jsonData[index]['ingredients']
+      app.locals.proteinName = foodData['protein']['name'];
+      app.locals.proteinPreparation = foodData['protein']['preparation']
+      console.log(foodData)
 
+     
+      }
 
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
