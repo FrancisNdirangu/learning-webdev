@@ -62,8 +62,9 @@ app.post("/recipe", (req, res) => {
       data=jsonData[index];
       break
   }
-    console.log(data) ;
+    console.log(data.name) ;
 
+  res.redirect('/');
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
 
