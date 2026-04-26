@@ -13,36 +13,56 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 const jsonData = JSON.parse(recipeJSON);
 
+
+
+let data;
+let index;
+
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs",{recipe:data});
 });
+
+
 
 app.post("/recipe", (req, res) => {
   //Step 3: Write your code here to make this behave like the solution website.
   const buttonValue = req.body['choice'];
   //console.log(buttonValue);
 
-  if (buttonValue == "chicken") {
-      const index = 0;
-      const foodData = jsonData[index]['ingredients']
-      app.locals.proteinName = foodData['protein']['name'];
-      app.locals.proteinPreparation = foodData['protein']['preparation']
-      console.log(foodData)
-      app.locals.salsaQuantity = foodData['salsa']['quantity'];
-      app.locals.salsaSpiciness = foodData['salsa']['spiciness'];
-      
-      app.locals.lettuceName = foodData['toppings'][0]['name'];
-      app.locals.lettuceQuantity = foodData['toppings'][0]['quantity'];
-      app.locals.guacName = foodData['toppings'][2]['name'];
-      app.locals.guacQuantity = foodData['toppings'][2]['quantity'];
-      app.locals.creamName = foodData['toppings'][3]['name'];
-      app.locals.creamQuantity = foodData['toppings'][3]['quantity'];
-      app.locals.cheeseName = foodData['toppings'][1]['name'];
-      app.locals.cheeseQuantity = foodData['toppings'][1]['quantity'];
-      console.log(app.locals.creamName);
+  // if (buttonValue == "chicken") {
+  //     const index = 0;
+  //     const foodData = jsonData[index]['ingredients']
+  //     app.locals.proteinName = foodData['protein']['name'];
+  //     app.locals.proteinPreparation = foodData['protein']['preparation']
+  //     console.log(foodData)
+  //     app.locals.salsaQuantity = foodData['salsa']['quantity'];
+  //     app.locals.salsaSpiciness = foodData['salsa']['spiciness'];
+  //
+  //     app.locals.lettuceName = foodData['toppings'][0]['name'];
+  //     app.locals.lettuceQuantity = foodData['toppings'][0]['quantity'];
+  //     app.locals.guacName = foodData['toppings'][2]['name'];
+  //     app.locals.guacQuantity = foodData['toppings'][2]['quantity'];
+  //     app.locals.creamName = foodData['toppings'][3]['name'];
+  //     app.locals.creamQuantity = foodData['toppings'][3]['quantity'];
+  //     app.locals.cheeseName = foodData['toppings'][1]['name'];
+  //     app.locals.cheeseQuantity = foodData['toppings'][1]['quantity'];
+  //     console.log(app.locals.creamName);
 
-     
-      }
+  switch (buttonValue) {
+    case "chicken":
+       index= 0;
+       data = jsonData[index];
+      break
+    case "beef":
+       index=1;
+      data= jsonData[index];
+      break
+    case "fish":
+       index = 2;
+      data=jsonData[index];
+      break
+  }
+    console.log(data) ;
 
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
