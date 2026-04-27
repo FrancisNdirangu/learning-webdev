@@ -33,6 +33,24 @@ app.post("/", async (req, res) => {
   // sure you're passing both the type and participants queries.
   // Render the index.ejs file with a single *random* activity that comes back
   // from the API request.
+  
+  //to do step 2 first save the req.body into a variable
+  //that req.body variable is a json with two keys, type and participants
+  // those values can be injected to a url/filter${variable.type}&${variable.participants}
+  // console log the response from the request
+  const jsonResponse = req.body;
+  try {
+
+    const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${jsonResponse.type}&participants=${jsonResponse.participants}`);
+    console.log(response.data);
+  } catch(error) {
+    console.error("Failed to make request:",error.message);
+    res.render("index.ejs",{
+      error:error.message,
+    });
+  }
+
+
   // Step 3: If you get a 404 error (resource not found) from the API request.
   // Pass an error to the index.ejs to tell the user:
   // "No activities that match your criteria."
