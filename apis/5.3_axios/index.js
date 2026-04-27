@@ -43,6 +43,15 @@ app.post("/", async (req, res) => {
 
     const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${jsonResponse.type}&participants=${jsonResponse.participants}`);
     console.log(response.data);
+    const result = response.data;
+    console.log(result.length);
+    const randNum = Math.floor( Math.random()*(result.length) );
+    console.log(`Random number generated: ${randNum}`);
+
+    const chosenResult = result[randNum];
+    console.log(chosenResult);
+
+    res.render('index.ejs', { data:chosenResult });
   } catch(error) {
     console.error("Failed to make request:",error.message);
     res.render("index.ejs",{
