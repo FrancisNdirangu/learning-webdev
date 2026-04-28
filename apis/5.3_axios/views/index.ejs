@@ -56,7 +56,9 @@
       <div id="tag-error" class="tag-error">
         <!-- Show any errors that were sent from the backend -->
         <% if ( locals.error ){ %>
-        <span> <%= error %> </span>
+        <span> <%= error %> 
+          There is no activity for the combination you picked
+        </span>
         <% }%>
       </div>
 
