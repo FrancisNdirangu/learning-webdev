@@ -22,7 +22,7 @@ app.get("/noAuth", async (req, res) => {
 
   try {
   const request = await axios.get(API_URL+'random');
-  console.log(request);
+  console.log(request.data);
   } catch (error) {
     console.error(error.message);
   }
