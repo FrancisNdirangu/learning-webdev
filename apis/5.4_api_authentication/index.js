@@ -53,6 +53,7 @@ app.get("/basicAuth", async (req, res) => {
     });
     const response = request.data;
    console.log(response) ;
+    res.render("index.ejs",{content:response})
   } catch (error) {
     console.error(error.message);
   }
