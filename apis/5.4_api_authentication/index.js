@@ -76,6 +76,7 @@ app.get("/apiKey", async (req, res) => {
     });
     const response = JSON.stringify( request.data );
     console.log(response);
+    res.render("index.ejs",{content:response})
   } catch (error) {
     console.error(error.message);
   }
