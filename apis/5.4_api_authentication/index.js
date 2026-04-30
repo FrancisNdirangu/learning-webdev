@@ -62,10 +62,24 @@ app.get("/basicAuth", async (req, res) => {
 
 });
 
-app.get("/apiKey", (req, res) => {
+app.get("/apiKey", async (req, res) => {
   //TODO 4: Write your code here to hit up the /filter endpoint
   //Filter for all secrets with an embarassment score of 5 or greater
   //HINT: You need to provide a query parameter of apiKey in the request.
+  
+  try {
+    const request = await axios.get(API_URL+"filter",{
+    params: {
+      score:5,
+      apiKey:yourAPIKey,
+    }
+    });
+    const response = JSON.stringify( request.data );
+    console.log(response);
+  } catch (error) {
+    console.error(error.message);
+  }
+
 });
 
 app.get("/bearerToken", (req, res) => {
