@@ -95,6 +95,20 @@ app.get("/bearerToken", async (req, res) => {
     },
   });
   */
+    try { 
+    const request = await axios.get(API_URL+"secrets/42",{
+      headers: {
+        Authorization: `Bearer ${yourBearerToken}`,
+      }
+    })
+
+    const response = JSON.stringify(request.data);
+    console.log(response);
+    res.render("index.ejs",{content:response})
+  } catch (error) {
+    console.error(error.message);
+  };
+
 });
 
 app.listen(port, () => {
