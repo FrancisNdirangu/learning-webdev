@@ -39,7 +39,8 @@ app.post("/post-secret", async (req, res) => {
   try {
     const request = await axios.post(API_URL+"/secrets", req.body,config);
     //const response = JSON.stringify(request);
-    res.status(200).json(request.data)
+    console.log(request.data)
+    //res.status(200).json(request.data)
     } catch (error){
       console.error(error.message);
       //res.status(404)
