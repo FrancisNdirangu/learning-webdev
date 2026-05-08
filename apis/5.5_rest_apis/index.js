@@ -41,6 +41,7 @@ app.post("/post-secret", async (req, res) => {
     //const response = JSON.stringify(request);
     console.log(request.data)
     //res.status(200).json(request.data)
+    res.render("index.ejs",{content:JSON.stringify(request.data)})
     } catch (error){
       console.error(error.message);
       //res.status(404)
