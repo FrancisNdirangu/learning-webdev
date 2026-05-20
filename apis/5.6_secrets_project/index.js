@@ -18,6 +18,6 @@ app.use(express.static('public'));
 
 // 6. Listen on your predefined port and start the server.
 
-app.Listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
