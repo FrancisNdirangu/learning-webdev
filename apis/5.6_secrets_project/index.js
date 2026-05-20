@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 // 4. When the user goes to the home page it should render the index.ejs file.
 app.get("/", (req,res) => {
-  res.render("index.ejs",{secret:"Waiting for data"})
+  res.render("index.ejs",{secret:"Waiting for data",user:"Waitig for user"})
 })
 
 // 5. Use axios to get a random secret and pass it to index.ejs to display the
