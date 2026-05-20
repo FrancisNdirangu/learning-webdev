@@ -79,6 +79,13 @@ app.post("/patch-secret", async (req, res) => {
 app.post("/delete-secret", async (req, res) => {
   const searchId = req.body.id;
   // TODO 5: Use axios to DELETE the item with searchId from the secrets api servers.
+  try{
+    const request = await axios.delete(API_URL+"/secrets/"+searchId,config);
+    console.log(request.data);
+    res.render("index.ejs",{content:JSON.stringify(request.data)});
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 app.listen(port, () => {
