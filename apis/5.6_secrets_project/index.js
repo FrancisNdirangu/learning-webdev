@@ -20,6 +20,11 @@ app.get("/", (req,res) => {
 // secret and the username of the secret.
 app.get("/", (req,res) => {
   
+  try {
+
+  } catch (error) {
+    console.error(error.message)
+  }
 })
 // 6. Listen on your predefined port and start the server.
 
