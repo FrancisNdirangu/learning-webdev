@@ -18,9 +18,11 @@ app.get("/", (req,res) => {
 
 // 5. Use axios to get a random secret and pass it to index.ejs to display the
 // secret and the username of the secret.
-app.get("/", (req,res) => {
+app.get("/", async (req,res) => {
   
   try {
+    const request = await axios.get(random_secret_url);
+    console.log(request.data);
 
   } catch (error) {
     console.error(error.message)
