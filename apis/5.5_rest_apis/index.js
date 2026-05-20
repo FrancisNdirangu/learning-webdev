@@ -67,6 +67,10 @@ app.post("/patch-secret", async (req, res) => {
   // TODO 4: Use axios to PATCH the data from req.body to the secrets api servers.
   try{
 
+    const request = await axios.patch(API_URL+"/secrets/"+searchId,req.body,config);
+    console.log(request.data);
+    res.render("index.ejs",{content:JSON.stringify(request.data)})
+
   } catch(error) {
     console.log(error.message)
   }
