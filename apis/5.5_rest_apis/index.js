@@ -54,6 +54,7 @@ app.post("/put-secret", async (req, res) => {
   try{
     const request = await axios.put(API_URL+"/secrets/"+searchId,req.body,config);
     console.log(request.data)
+    res.render("index.ejs",{content:JSON.stringify((request.data))});
 
     
   } catch(error) {
