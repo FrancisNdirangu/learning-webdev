@@ -12,7 +12,7 @@ const API_URL = "https://secrets-api.appbrewery.com";
 // https://secrets-api.appbrewery.com/
 
 //TODO 1: Add your own bearer token from the previous lesson.
-const yourBearerToken = "868ba8d4-46c0-44be-987c-0761bbb27b1b";
+const yourBearerToken = "4fcc8eb1-f26e-4b18-a38d-ad1281ae0723";
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
 };
@@ -51,8 +51,11 @@ app.post("/post-secret", async (req, res) => {
 app.post("/put-secret", async (req, res) => {
   const searchId = req.body.id;
   // TODO 3: Use axios to PUT the data from req.body to the secrets api servers.
-  try {
-  } catch (error) {
+  try{
+    const request = await axios.put(API_URL+"/secrets/"+searchId,req.body,config);
+    console.log(request.data)
+    res.render("index.ejs",{content:JSON.stringify((request.data))});
+  } catch(error) {
     console.error(error.message);
   }
 });
@@ -60,11 +63,27 @@ app.post("/put-secret", async (req, res) => {
 app.post("/patch-secret", async (req, res) => {
   const searchId = req.body.id;
   // TODO 4: Use axios to PATCH the data from req.body to the secrets api servers.
+  try{
+
+    const request = await axios.patch(API_URL+"/secrets/"+searchId,req.body,config);
+    console.log(request.data);
+    res.render("index.ejs",{content:JSON.stringify(request.data)})
+
+  } catch(error) {
+    console.log(error.message)
+  }
 });
 
 app.post("/delete-secret", async (req, res) => {
   const searchId = req.body.id;
   // TODO 5: Use axios to DELETE the item with searchId from the secrets api servers.
+  try{
+    const request = await axios.delete(API_URL+"/secrets/"+searchId,config);
+    console.log(request.data);
+    res.render("index.ejs",{content:JSON.stringify(request.data)});
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 app.listen(port, () => {
