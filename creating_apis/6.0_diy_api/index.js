@@ -8,9 +8,23 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
+app.get("/api/jokes/random", async (req,res) => {
+  try{
+    const randomIndex = Math.floor(Math.random()*jokes.length);
+    const randomJoke = jokes[randomIndex];
+    res.status(200).json(randomJoke);
+  } catch(error){
+    res.status(500).json({message: "An error occurred while fetching a random joke."});
+  }
+});
 
 //2. GET a specific joke
-
+app.get("/api/jokes/:id", async (req,res) => {
+  const jokeId = req.params.id;
+  const jokeIndex = jokeId - 1;
+  const specificJoke = jokes[jokeIndex];
+  res.status(200).json(specificJoke);
+});
 //3. GET a jokes by filtering on the joke type
 
 //4. POST a new joke
