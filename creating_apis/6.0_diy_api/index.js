@@ -19,13 +19,20 @@ app.get("/api/jokes/random", async (req,res) => {
 });
 
 //2. GET a specific joke
-app.get("/api/jokes/:id", async (req,res) => {
-  const jokeId = req.params.id;
-  const jokeIndex = jokeId - 1;
-  const specificJoke = jokes[jokeIndex];
-  res.status(200).json(specificJoke);
-});
+// app.get("/api/jokes/:id", async (req,res) => {
+//   const jokeId = req.params.id;
+//   const jokeIndex = jokeId - 1;
+//   const specificJoke = jokes[jokeIndex];
+//   res.status(200).json(specificJoke);
+// });
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", async (req,res) => {
+  const jokeTypeQuery = req.query.type;
+  const jokeTypeList = jokes.filter((joke)=> joke.jokeType === jokeTypeQuery);
+  // res.status(200).json(jokeTypeList)
+  console.log(jokeTypeQuery);
+  res.json(jokeTypeList);
+});
 
 //4. POST a new joke
 
