@@ -56,7 +56,25 @@ app.put("/modifyJokes/:id", async (req,res) => {
   jokes[jokeIndex] = modifiedEntry;
   res.json(modifiedEntry);
 })
+
 //6. PATCH a joke
+app.patch("/jokes/:id", async (req,res) => {
+  const jokeId = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === jokeId);
+  if (req.body.text){
+    const newJoke = req.body.text;
+    jokes[searchIndex].jokeText = newJoke; 
+    res.json(jokes[searchIndex]);
+  } else if (req.body.type){
+    const newType = req.body.type;
+    jokes[searchIndex].jokeType = newType;
+    res.json(jokes[searchIndex]);
+  } else {
+    console.log('None of the body parameters found')
+  }
+
+
+})
 
 //7. DELETE Specific joke
 
