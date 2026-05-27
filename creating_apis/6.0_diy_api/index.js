@@ -49,7 +49,13 @@ app.post("/jokes", async (req,res) =>{
 
 })
 //5. PUT a joke
-
+app.put("/modifyJokes/:id", async (req,res) => {
+  const jokeID = req.params.id;
+  const jokeIndex = jokeID -1;
+  const modifiedEntry = {id:jokeID, jokeText:req.body.text, jokeType:req.body.type};
+  jokes[jokeIndex] = modifiedEntry;
+  res.json(modifiedEntry);
+})
 //6. PATCH a joke
 
 //7. DELETE Specific joke
