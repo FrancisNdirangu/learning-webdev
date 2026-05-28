@@ -108,6 +108,16 @@ app.patch("/posts/:id", async (req,res) => {
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 
+app.delete("/posts/:id", async (req,res) => {
+  const inputId = parseInt(req.params.id);
+  const searchIndex = posts.findIndex((post) => post.id === inputId);
+  posts.splice(searchIndex,1);
+
+
+  //ackfnowledge receipt
+  res.status(200).send({message:"You have successfully deleted a post"});
+});
+
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
 });
