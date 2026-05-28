@@ -86,6 +86,26 @@ app.post("/posts", async (req,res) => {
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
 
+app.patch("/posts/:id", async (req,res) => {
+  const inputId = parseInt(req.params.id);
+  const searchIndex = posts.findIndex((post) => post.id === inputId);
+  const updatedData = req.body;
+  const updateTime = new Date()
+  posts[searchIndex] = {
+    id:inputId,
+    title:updatedData.title,
+    content:updatedData.content,
+    author:updatedData.author,
+    creationDate:updatedData.date,
+    lastupdateDate: updateTime
+  };
+
+  // res.json(posts);
+
+  //acknowledge receipt
+  res.status(200).send({message:"Partial update was successful"});
+})
+
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 
 app.listen(port, () => {
