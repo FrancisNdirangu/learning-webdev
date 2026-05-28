@@ -56,6 +56,14 @@ app.get("/posts", async (req,res) => {
 
 //CHALLENGE 2: GET a specific post by id
 
+app.get("/posts/:id", async (req,res) => {
+
+  const inputId = parseInt(req.params.id);
+  const searchIndex = posts.findIndex((post) => post.id === inputId)
+  res.json(posts[searchIndex]);
+
+});
+
 //CHALLENGE 3: POST a new post
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
