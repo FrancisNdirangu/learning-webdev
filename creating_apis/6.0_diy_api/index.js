@@ -78,6 +78,14 @@ app.patch("/jokes/:id", async (req,res) => {
 
 //7. DELETE Specific joke
 
+app.delete("/jokes/:id", async (req,res) => {
+  const jokeId = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === jokeId);
+  // res.json(jokes[searchIndex]);
+  const newJokes = jokes.filter(n => n !== jokes[searchIndex]);
+  res.json(newJokes[searchIndex])
+});
+
 //8. DELETE All jokes
 
 app.listen(port, () => {
