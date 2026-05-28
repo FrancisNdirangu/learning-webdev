@@ -78,7 +78,9 @@ app.post("/posts", async (req,res) => {
     author:data.author,
     date:now
   });
-  
+
+  //acknowledge receipt
+  res.status(200).send({message:"New post was received and added to the posts array successfully"});
 
 })
 
