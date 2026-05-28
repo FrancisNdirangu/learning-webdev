@@ -48,10 +48,11 @@ app.set('view engine', 'ejs');
 
 //CHALLENGE 1: GET All posts
 
-app.get("/", async (req,res) => {
+app.get("/posts", async (req,res) => {
 
-  res.render('index',{posts:posts});
-
+  // res.render('index',{posts:posts});
+  // const blogPosts = posts;
+  res.json(posts);
 
 });
 
