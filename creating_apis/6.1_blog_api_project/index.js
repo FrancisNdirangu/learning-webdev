@@ -38,9 +38,22 @@ let lastId = 3;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// setting ejs as the engine
+app.set('views','./views')
+app.set('view engine', 'ejs');
+
+
+
 //Write your code here//
 
 //CHALLENGE 1: GET All posts
+
+app.get("/", async (req,res) => {
+
+  res.render('index',{posts:posts});
+
+
+});
 
 //CHALLENGE 2: GET a specific post by id
 
