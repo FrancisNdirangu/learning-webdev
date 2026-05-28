@@ -39,8 +39,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // setting ejs as the engine
-app.set('views','./views')
-app.set('view engine', 'ejs');
+// app.set('views','./views')
+// app.set('view engine', 'ejs');
 
 
 
@@ -50,8 +50,6 @@ app.set('view engine', 'ejs');
 
 app.get("/posts", async (req,res) => {
 
-  // res.render('index',{posts:posts});
-  // const blogPosts = posts;
   res.json(posts);
 
 });
