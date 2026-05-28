@@ -66,6 +66,22 @@ app.get("/posts/:id", async (req,res) => {
 
 //CHALLENGE 3: POST a new post
 
+app.post("/posts", async (req,res) => {
+  const lengthArray = posts.length;
+  const postId = lengthArray+1;
+  const data = req.body;
+  const now = new Date();
+  posts.push ({
+    id:postId,
+    title:data.title,
+    content:data.content,
+    author:data.author,
+    date:now
+  });
+  
+
+})
+
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
