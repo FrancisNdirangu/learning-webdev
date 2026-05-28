@@ -88,6 +88,19 @@ app.delete("/jokes/:id", async (req,res) => {
 
 //8. DELETE All jokes
 
+app.delete("/all", async (req,res) => {
+  // const newJokes = jokes.splice(0,jokes.length);
+  // const newJokes = jokes;
+  const key = req.query.key;
+  if (key === masterKey) {
+
+  jokes = []
+  res.json(jokes);
+  } else {
+    res.status(404).json({error: 'You arent authorized to perform this action.'});
+  }
+});
+
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
 });
