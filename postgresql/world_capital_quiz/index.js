@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from 'pg';
+import 'dotenv/config'
 
 const app = express();
 const port = 3000;
@@ -11,7 +12,15 @@ const port = 3000;
 //   { country: "United States of America", capital: "New York" },
 // ];
 
+const db = new pg.Client({
+  user:process.env.DB_USER,
+  host:process.env.DB_HOST,
+  database:"world",
+  password:process.env.DB_PASSWORD,
+  port:5432
+});
 
+db.connect();
 
 let totalCorrect = 0;
 
