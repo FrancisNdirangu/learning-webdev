@@ -27,7 +27,12 @@ db.query("SELECT * FROM visited_countries", (err,res) => {
   } else {
     countries_visited = res.rows;
   }
-})
+});
+
+//let list_countries = []
+// list_countries = countries_visited.forEach((element) => {
+//   list_countries.push(element['countries_code']);
+// });
 
 const total = countries_visited.length;
 app.get("/", async (req, res) => {
@@ -35,8 +40,10 @@ app.get("/", async (req, res) => {
   //I will have to pass the variable with the key = countries
   //pass key called total that has the count of the number of countries len(array)
   //
-  console.log(countries_visited);
+  //console.log(countries_visited);
 
+  const list_countries = countries_visited.map((item) => item.countries_code);
+  console.log(list_countries);
   res.render("index.ejs",{countries:countries_visited,total:total});
 
 });
