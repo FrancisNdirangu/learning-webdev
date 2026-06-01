@@ -22,6 +22,10 @@ const db = new pg.Client(
   }
 );
 
+db.connect();
+
+
+
 // GET home page
 app.get("/", (req, res) => {
   totalCorrect = 0;
