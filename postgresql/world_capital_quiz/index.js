@@ -6,11 +6,11 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-// let quiz = [
-//   { country: "France", capital: "Paris" },
-//   { country: "United Kingdom", capital: "London" },
-//   { country: "United States of America", capital: "New York" },
-// ];
+let quiz = [
+  { country: "France", capital: "Paris" },
+  { country: "United Kingdom", capital: "London" },
+  { country: "United States of America", capital: "New York" },
+];
 
 const db = new pg.Client({
   user:process.env.DB_USER,
@@ -51,7 +51,7 @@ app.get("/", async (req, res) => {
 app.post("/submit", (req, res) => {
   let answer = req.body.answer.trim();
   let isCorrect = false;
-  if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
+  if (currentQuestion.capitals.toLowerCase() === answer.toLowerCase()) {
     totalCorrect++;
     console.log(totalCorrect);
     isCorrect = true;
