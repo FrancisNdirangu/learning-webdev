@@ -34,6 +34,8 @@ app.get("/", async (req, res) => {
   //I will have to pass the variable with the key = countries
   //pass key called total that has the count of the number of countries len(array)
   //
+  console.log(countries_visited);
+
 });
 
 app.listen(port, () => {
