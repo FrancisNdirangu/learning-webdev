@@ -44,7 +44,7 @@ app.get("/", async (req, res) => {
 
   const list_countries = countries_visited.map((item) => item.countries_code);
   console.log(list_countries);
-  res.render("index.ejs",{countries:countries_visited,total:total});
+  res.render("index.ejs",{countries:list_countries,total:total});
 
 });
 
