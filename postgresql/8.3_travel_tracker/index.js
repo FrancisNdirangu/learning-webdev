@@ -9,6 +9,16 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const db = new pg.Client(
+  {   user:process.env.DB_USER,
+    host:process.env.DB_HOST,
+    database:process.env.DB_NAME,
+    password:process.env.DB_PASSWORD,
+    port:process.env.DB_PORT 
+  });
+
+db.connect();
+
 app.get("/", async (req, res) => {
   //Write your code here.
   //I will have to pass the variable with the key = countries
