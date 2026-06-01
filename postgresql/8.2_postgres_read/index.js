@@ -1,6 +1,7 @@
+import 'dotenv/config'
+import pg from 'pg';
 import express from "express";
 import bodyParser from "body-parser";
-import pg from 'pg';
 
 const app = express();
 const port = 3000;
@@ -12,19 +13,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 let currentQuestion = {};
-
+let quiz = [
+  { country: "France", flag: "Paris" },
+  { country: "United Kingdom", flag: "London" },
+  { country: "United States of America", flag: "New York" },
+];
 const db = new pg.Client(
   {   user:process.env.DB_USER,
     host:process.env.DB_HOST,
-    database:DB_NAME,
-    password:DB_PASSWORD,
-    port:DB_PORT
+    database:process.env.DB_NAME,
+    password:process.env.DB_PASSWORD,
+    port:process.env.DB_PORT
   }
 );
 
 db.connect();
 
-
+db.query("SELECT * from flags", (err,res) => {
+  if (err) {
+    console.error("Not executed the query", err.stack);
+  } else {
+    quiz=res.rows;
+  }
+});
 
 // GET home page
 app.get("/", (req, res) => {
@@ -38,7 +49,7 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
   let answer = req.body.answer.trim();
   let isCorrect = false;
-  if (currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
+  if (currentQuestion.country.toLowerCase() === answer.toLowerCase()) {
     totalCorrect++;
     console.log(totalCorrect);
     isCorrect = true;
