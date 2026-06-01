@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import pg from 'pg';
 
 const app = express();
 const port = 3000;
@@ -11,6 +12,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 let currentQuestion = {};
+
+const db = new pg.Client(
+  {   user:process.env.DB_USER,
+    host:process.env.DB_HOST,
+    database:DB_NAME,
+    password:DB_PASSWORD,
+    port:DB_PORT
+  }
+);
 
 // GET home page
 app.get("/", (req, res) => {
