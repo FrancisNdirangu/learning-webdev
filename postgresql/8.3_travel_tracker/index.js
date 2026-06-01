@@ -29,12 +29,15 @@ db.query("SELECT * FROM visited_countries", (err,res) => {
   }
 })
 
+const total = countries_visited.length;
 app.get("/", async (req, res) => {
   //Write your code here.
   //I will have to pass the variable with the key = countries
   //pass key called total that has the count of the number of countries len(array)
   //
   console.log(countries_visited);
+
+  res.render("index.ejs",{countries:countries_visited,total:total});
 
 });
 
