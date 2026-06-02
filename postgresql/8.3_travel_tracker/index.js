@@ -45,7 +45,7 @@ app.get("/", async (req, res) => {
   const list_countries = countries_visited.map((item) => item.countries_code);
 
   const total = countries_visited.length;
-  console.log(list_countries);
+  //console.log(list_countries);
   res.render("index.ejs",{countries:list_countries,total:total});
 
 });
@@ -67,6 +67,7 @@ app.post("/add", (req,res) => {
   const input_country = req.body.country;
   console.log(input_country);
 
+  console.log(countries_and_codes_db);
   const countries_and_codes_list = countries_and_codes_db.map((item) => item.country_code);
   console.log(countries_and_codes_list);
 });
