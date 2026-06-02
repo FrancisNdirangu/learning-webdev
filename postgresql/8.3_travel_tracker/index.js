@@ -50,6 +50,16 @@ app.get("/", async (req, res) => {
 
 });
 
+let countries_and_codes_db = []
+db.query("SELECT * FROM countries", (err,res) => {
+    if (err) {
+      console.error("Failed to make query to countries table", err.stack);
+    } else {
+      countries_and_codes_db = res.rows;
+    }
+  });
+
+
 app.post("/add", (req,res) => {
 
   const list_countries = countries_visited.map((item) => item.countries_code);
@@ -57,6 +67,8 @@ app.post("/add", (req,res) => {
   const input_country = req.body.country;
   console.log(input_country);
 
+  const countries_and_codes_list = countries_and_codes_db.map((item) => item.country_code);
+  console.log(countries_and_codes_list);
 });
 
 
