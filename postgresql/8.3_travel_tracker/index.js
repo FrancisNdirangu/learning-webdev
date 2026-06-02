@@ -49,6 +49,12 @@ app.get("/", async (req, res) => {
 
 });
 
+app.post("/add", (req,res) => {
+  const input_country = req.body;
+  console.log(input_country);
+});
+
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
