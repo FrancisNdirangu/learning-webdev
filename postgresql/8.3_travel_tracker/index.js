@@ -34,6 +34,7 @@ db.query("SELECT * FROM visited_countries", (err,res) => {
 //   list_countries.push(element['countries_code']);
 // });
 
+
 app.get("/", async (req, res) => {
   //Write your code here.
   //I will have to pass the variable with the key = countries
@@ -50,6 +51,9 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/add", (req,res) => {
+
+  const list_countries = countries_visited.map((item) => item.countries_code);
+  const total = countries_visited.length;
   const input_country = req.body.country;
   console.log(input_country);
 
