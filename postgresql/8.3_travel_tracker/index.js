@@ -50,8 +50,9 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/add", (req,res) => {
-  const input_country = req.body;
+  const input_country = req.body.country;
   console.log(input_country);
+
 });
 
 
