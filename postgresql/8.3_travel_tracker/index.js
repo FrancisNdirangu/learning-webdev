@@ -29,6 +29,7 @@ db.query("SELECT * FROM visited_countries", (err,res) => {
   }
 });
 
+
 //let list_countries = []
 // list_countries = countries_visited.forEach((element) => {
 //   list_countries.push(element['countries_code']);
@@ -65,11 +66,12 @@ app.post("/add", (req,res) => {
   const list_countries = countries_visited.map((item) => item.countries_code);
   const total = countries_visited.length;
   const input_country = req.body.country;
-  console.log(input_country);
-
-  console.log(countries_and_codes_db);
+  // console.log(input_country);
+  // console.log(countries_and_codes_db);
+  const input_country_code = countries_and_codes_db.find(element => element.country_name.trim().toLowerCase() == input_country.trim().toLowerCase());
+  console.log(input_country_code);
   const countries_and_codes_list = countries_and_codes_db.map((item) => item.country_code);
-  console.log(countries_and_codes_list);
+  // console.log(countries_and_codes_list);
 });
 
 
