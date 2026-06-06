@@ -74,8 +74,6 @@ db.query("SELECT * FROM countries", (err, res) => {
 });
 
 app.post("/add", (req, res) => {
-  const list_countries = countries_visited.map((item) => item.countries_code);
-  const total = countries_visited.length;
   const input_country = req.body.country;
   // console.log(input_country);
   // console.log(countries_and_codes_db);
