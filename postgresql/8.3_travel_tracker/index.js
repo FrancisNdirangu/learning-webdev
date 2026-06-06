@@ -87,6 +87,11 @@ app.post("/add", (req, res) => {
     (item) => item.country_code,
   );
   // console.log(countries_and_codes_list);
+
+  db.query("INSERT INTO visited_countries (countries_code) VALUES ($1)", [
+    input_country_code.country_code,
+  ]);
+  res.redirect("/");
 });
 
 app.listen(port, () => {
