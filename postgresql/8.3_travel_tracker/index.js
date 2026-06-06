@@ -73,25 +73,28 @@ db.query("SELECT * FROM countries", (err, res) => {
   }
 });
 
-app.post("/add", (req, res) => {
+app.post("/add", async (req, res) => {
   const input_country = req.body.country;
   // console.log(input_country);
   // console.log(countries_and_codes_db);
-  const input_country_code = countries_and_codes_db.find(
-    (element) =>
-      element.country_name.trim().toLowerCase() ==
-      input_country.trim().toLowerCase(),
-  );
-  console.log(input_country_code);
-  const countries_and_codes_list = countries_and_codes_db.map(
-    (item) => item.country_code,
-  );
+  try {
+    const input_country_code = countries_and_codes_db.find(
+      (element) =>
+        element.country_name.trim().toLowerCase() ==
+        input_country.trim().toLowerCase(),
+    );
+    console.log(input_country_code);
+    const countries_and_codes_list = countries_and_codes_db.map(
+      (item) => item.country_code,
+    );
+    db.query("INSERT INTO visited_countries (countries_code) VALUES ($1)", [
+      input_country_code.country_code,
+    ]);
+    res.redirect("/");
+  } catch (error) {
+    console.error(`Country may not exist error: ${error.message}`);
+  }
   // console.log(countries_and_codes_list);
-
-  db.query("INSERT INTO visited_countries (countries_code) VALUES ($1)", [
-    input_country_code.country_code,
-  ]);
-  res.redirect("/");
 });
 
 app.listen(port, () => {
