@@ -93,6 +93,7 @@ app.post("/add", async (req, res) => {
     res.redirect("/");
   } catch (error) {
     console.error(`Country may not exist error: ${error.message}`);
+    res.redirect("/");
   }
   // console.log(countries_and_codes_list);
 });
