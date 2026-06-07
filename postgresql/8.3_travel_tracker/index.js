@@ -88,10 +88,15 @@ app.post("/add", async (req, res) => {
         element.country_name.trim().toLowerCase() ==
         input_country.trim().toLowerCase(),
     );
-    console.log(input_country_code);
+    //console.log(input_country_code);
     const countries_and_codes_list = countries_and_codes_db.map(
       (item) => item.country_code,
     );
+    const is_unique = await db.query(
+      "SELECT * FROM visited_countries WHERE countries_code = $1",
+      [input_country_code.country_code],
+    );
+    console.log(is_unique.rows);
     db.query("INSERT INTO visited_countries (countries_code) VALUES ($1)", [
       input_country_code.country_code,
     ]);
