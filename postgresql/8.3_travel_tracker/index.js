@@ -92,14 +92,26 @@ app.post("/add", async (req, res) => {
     const countries_and_codes_list = countries_and_codes_db.map(
       (item) => item.country_code,
     );
+
     const is_unique = await db.query(
       "SELECT * FROM visited_countries WHERE countries_code = $1",
       [input_country_code.country_code],
     );
     console.log(is_unique.rows);
-    db.query("INSERT INTO visited_countries (countries_code) VALUES ($1)", [
-      input_country_code.country_code,
-    ]);
+
+    if (is_unique.length === 0) {
+      await db.query(
+        "INSERT INTO visited_countries (countries_code) VALUES ($1)",
+        [input_country_code.country_code],
+      );
+      console.log(`Successfully added: ${input_country_code.country_code}`);
+    } else {
+      console.log(
+        `Aborted: ${input_country_code.country_code} already exists!`,
+      );
+      error_message = "You have already visited this country";
+    }
+
     res.redirect("/");
   } catch (error) {
     console.error(`Country may not exist error: ${error.message}`);
