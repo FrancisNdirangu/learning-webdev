@@ -33,6 +33,7 @@ db.connect();
 // list_countries = countries_visited.forEach((element) => {
 //   list_countries.push(element['countries_code']);
 // });
+let error_message = [];
 
 app.get("/", async (req, res) => {
   //Write your code here.
@@ -57,7 +58,11 @@ app.get("/", async (req, res) => {
 
         const total = countries_visited.length;
         //console.log(list_countries);
-        res.render("index.ejs", { countries: list_countries, total: total });
+        res.render("index.ejs", {
+          countries: list_countries,
+          total: total,
+          error: error_message,
+        });
       }
     },
   );
@@ -93,6 +98,7 @@ app.post("/add", async (req, res) => {
     res.redirect("/");
   } catch (error) {
     console.error(`Country may not exist error: ${error.message}`);
+    error_message = "The input typed is not a country. Try again";
     res.redirect("/");
   }
   // console.log(countries_and_codes_list);
