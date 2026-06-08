@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
@@ -6,11 +7,11 @@ const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "world",
-  password: "123456",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 db.connect();
 
@@ -47,7 +48,7 @@ app.post("/add", async (req, res) => {
   try {
     const result = await db.query(
       "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
-      [input.toLowerCase()]
+      [input.toLowerCase()],
     );
 
     const data = result.rows[0];
@@ -55,7 +56,7 @@ app.post("/add", async (req, res) => {
     try {
       await db.query(
         "INSERT INTO visited_countries (country_code) VALUES ($1)",
-        [countryCode]
+        [countryCode],
       );
       res.redirect("/");
     } catch (err) {
