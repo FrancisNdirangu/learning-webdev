@@ -70,7 +70,7 @@ app.post("/add", async (req, res) => {
 app.post("/user", async (req, res) => {
   users = await db.query("SELECT * FROM users");
   //console.log(users.rows);
-  const clicked = req.body;
+  const clicked = req.body.user;
   console.log(clicked);
 
   const countries = await checkVisisted();
