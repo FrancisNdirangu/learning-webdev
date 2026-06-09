@@ -89,8 +89,8 @@ app.post("/user", async (req, res) => {
   console.log(user_countries_list);
 
   res.render("index.ejs", {
-    countries: countries,
-    total: countries.length,
+    countries: user_countries_list,
+    total: user_countries_list.length,
     users: users.rows,
     color: "teal",
   });
