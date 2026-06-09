@@ -81,6 +81,13 @@ app.post("/user", async (req, res) => {
     (element) => element.user_id == clicked,
   );
   console.log(user_countries);
+
+  const user_countries_list = [];
+  user_countries.forEach((element) =>
+    user_countries_list.push(element.country_code),
+  );
+  console.log(user_countries_list);
+
   res.render("index.ejs", {
     countries: countries,
     total: countries.length,
