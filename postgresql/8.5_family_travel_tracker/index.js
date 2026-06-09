@@ -35,10 +35,11 @@ async function checkVisisted() {
 }
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
+  users = await db.query("SELECT * FROM users");
   res.render("index.ejs", {
     countries: countries,
     total: countries.length,
-    users: users,
+    users: users.rows,
     color: "teal",
   });
 });
@@ -68,9 +69,20 @@ app.post("/add", async (req, res) => {
 });
 app.post("/user", async (req, res) => {
   users = await db.query("SELECT * FROM users");
-  console.log(users.rows);
+  //console.log(users.rows);
+  const clicked = req.body;
+  console.log(clicked);
 
-  res.render("new.ejs");
+  const countries = await checkVisisted();
+  res.render("index.ejs", {
+    countries: countries,
+    total: countries.length,
+    users: users.rows,
+    color: "teal",
+  });
+
+  //res.render("new.ejs");
+  //res.redirect("/");
 });
 
 app.post("/new", async (req, res) => {
