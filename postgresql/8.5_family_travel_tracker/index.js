@@ -74,6 +74,13 @@ app.post("/user", async (req, res) => {
   console.log(clicked);
 
   const countries = await checkVisisted();
+  //console.log(countries);
+  const all_visited = await db.query("SELECT * FROM visited_countries");
+  const all_visited_list = all_visited.rows;
+  const user_countries = all_visited_list.filter(
+    (element) => element.user_id == clicked,
+  );
+  console.log(user_countries);
   res.render("index.ejs", {
     countries: countries,
     total: countries.length,
