@@ -88,11 +88,16 @@ app.post("/user", async (req, res) => {
   );
   console.log(user_countries_list);
 
+  const user_color = await db.query("SELECT color FROM users WHERE id = $1", [
+    clicked,
+  ]);
+  console.log(user_color.rows[0].color);
+
   res.render("index.ejs", {
     countries: user_countries_list,
     total: user_countries_list.length,
     users: users.rows,
-    color: "teal",
+    color: user_color.rows[0].color,
   });
 
   //res.render("new.ejs");
