@@ -1,3 +1,5 @@
+import 'dotenv/config';
+import pg from 'pg';
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -11,6 +13,7 @@ let items = [
   { id: 1, title: "Buy milk" },
   { id: 2, title: "Finish homework" },
 ];
+
 
 app.get("/", (req, res) => {
   res.render("index.ejs", {
