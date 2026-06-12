@@ -24,7 +24,7 @@ const db = new pg.Client({
 db.connect();
 
 app.get("/", async (req, res) => {
-  items = await db.query("SELECT title FROM items");
+  items = await db.query("SELECT * FROM items");
   console.log(items.rows);
   res.render("index.ejs", {
     listTitle: "Today",
@@ -39,7 +39,12 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
-app.post("/edit", (req, res) => {});
+app.post("/edit", (req, res) => {
+  const row_id = req.body;
+  console.log(row_id);
+  //it seems we get back the updatedItemTitle which
+  res.redirect("/");
+});
 
 app.post("/delete", (req, res) => {});
 
