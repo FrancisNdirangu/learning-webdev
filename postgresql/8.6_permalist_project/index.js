@@ -24,13 +24,13 @@ const db = new pg.Client({
 
 db.connect();
 
-items = await db.query("SELECT * FROM items");
+items = await db.query("SELECT title FROM items");
 console.log(items.rows);
 
 app.get("/", (req, res) => {
   res.render("index.ejs", {
     listTitle: "Today",
-    listItems: items,
+    listItems: items.rows,
   });
 });
 
