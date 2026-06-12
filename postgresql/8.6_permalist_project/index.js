@@ -39,10 +39,14 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
-app.post("/edit", (req, res) => {
-  const row_id = req.body;
-  console.log(row_id);
-  //it seems we get back the updatedItemTitle which
+app.post("/edit", async (req, res) => {
+  const row_edited = req.body;
+  console.log(row_edited);
+  //it seems we get back the updatedItemIf and updatedItemTitle which
+  await db.query("UPDATE items SET title = $1 WHERE id = $2", [
+    row_edited.updatedItemTitle,
+    parseInt(row_edited.updatedItemId),
+  ]);
   res.redirect("/");
 });
 
