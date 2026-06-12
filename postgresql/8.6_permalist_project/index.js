@@ -1,5 +1,5 @@
-import 'dotenv/config';
-import pg from 'pg';
+import "dotenv/config";
+import pg from "pg";
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -14,6 +14,18 @@ let items = [
   { id: 2, title: "Finish homework" },
 ];
 
+const db = new pg.Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
+});
+
+db.connect();
+
+items = await db.query("SELECT * FROM items");
+console.log(items.rows);
 
 app.get("/", (req, res) => {
   res.render("index.ejs", {
