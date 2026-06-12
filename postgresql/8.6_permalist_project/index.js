@@ -13,7 +13,6 @@ let items = [
   { id: 1, title: "Buy milk" },
   { id: 2, title: "Finish homework" },
 ];
-
 const db = new pg.Client({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -24,19 +23,19 @@ const db = new pg.Client({
 
 db.connect();
 
-items = await db.query("SELECT title FROM items");
-console.log(items.rows);
-
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  items = await db.query("SELECT title FROM items");
+  console.log(items.rows);
   res.render("index.ejs", {
     listTitle: "Today",
     listItems: items.rows,
   });
 });
 
-app.post("/add", (req, res) => {
+app.post("/add", async (req, res) => {
   const item = req.body.newItem;
-  items.push({ title: item });
+  //items.push({ title: item });
+  await db.query("INSERT INTO items (title) VALUES ($1)", [item]);
   res.redirect("/");
 });
 
